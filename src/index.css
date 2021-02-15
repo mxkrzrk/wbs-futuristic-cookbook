@@ -10,3 +10,11 @@
 body {
   font-size: 16px;
 }
+
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  body {
+    font-size: 20px;
+  }
+}

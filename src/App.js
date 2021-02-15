@@ -1,18 +1,24 @@
 import React from 'react';
-import './App.css';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Main from './components/Main/Main';
+import BlogCard from './components/BlogCard/BlogCard';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <div className="container">
-        <header>
-          <div className="header">
-            <span className="logo">Futuristic Cookbook</span>
-          </div>
-        </header>
-      </div>
-    </div>
+    <Container fluid>
+      <div>header</div>
+      <Row>
+        <Col>
+          <Main>
+            <BlogCard />
+            <BlogCard />
+          </Main>
+        </Col>
+      </Row>
+    </Container>
   );
-}
+};
 
 export default App;
