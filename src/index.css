@@ -10,3 +10,14 @@
 body {
   font-size: 16px;
 }
+
+#mob-nav {
+  justify-content: center;
+  background-color: var(--primary-color);
+  box-shadow: 0px 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.nav-link {
+  font-family: 'Libre Barcode 128 Text', cursive;
+  font-size: 3.25rem;
+}
