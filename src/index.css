@@ -1,0 +1,12 @@
+:root {
+  --font-barcode: 'Libre Barcode 128 Text', cursive;
+  --font-orbit: 'Orbitron', sans-serif;
+  --primary-color: #778899;
+  --secondary-color: #dcdcdc;
+  --dark-color: #010104;
+  --light-color: #f1efff;
+}
+
+body {
+  font-size: 16px;
+}
