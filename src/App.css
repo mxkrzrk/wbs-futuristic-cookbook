@@ -1,15 +1,46 @@
-body {
-  background-image: url(./Images/cookbook\ 2.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 0 0;
-  background-attachment: fixed;
+/* .container {
+color:blue
+
+
+
 }
 .header {
-  display: flex;
-  font-size: 8em;
+  display: inline-flex;
+  font-family: 'Libre Barcode 128 Text', cursive;
+  font-size: 2em;
   justify-content: center;
+  align-content: center;
 }
 .logo{
-  font-family: 'Libre Barcode 128 Text', cursive;
-}
+  display: flex;
+  width: 3em;
+  height: 3em;
+justify-content: left;
+      */
+  
+  /* }  */
+  h1 {
+    text-align: center;
+    letter-spacing: 1px;
+    font-family:'Libre Barcode 128 Text', cursive ;
+   color: #dcdcdc;;
+  }
+  
+  .hero {
+   border-bottom: 1em;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: ;
+   height: auto;
+   background-color: #778899;;
+  }
+  
+  .hero img {
+    padding: 1em;
+    width: 9em;
+    justify-content: left;
+    
+  }
+  
+ 

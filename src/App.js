@@ -1,17 +1,9 @@
 import React from 'react';
 import './App.css';
-
+import Header from'./header.js'
 function App() {
   return (
-    <div className="App">
-      <div className="container">
-        <header>
-          <div className="header">
-            <span className="logo">Futuristic Cookbook</span>
-          </div>
-        </header>
-      </div>
-    </div>
+    <Header />
   );
 }
 
