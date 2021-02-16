@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import Header from'./header.js'
 import MobNav from './MobNav';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
@@ -8,11 +9,7 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <header>
-          <div className="header">
-            <span className="logo">Futuristic Cookbook</span>
-          </div>
-        </header>
+    <Header />
         <footer>
           <MobNav>
             {/* <Switch>
