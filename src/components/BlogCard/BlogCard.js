@@ -1,7 +1,7 @@
 import React from 'react';
 import './BlogCard.css';
 import Card from 'react-bootstrap/Card';
-import image from '../../images/cookbook-2.jpg';
+import image from '../../Images/cookbook-2.jpg';
 
 const BlogCard = () => {
   return (
