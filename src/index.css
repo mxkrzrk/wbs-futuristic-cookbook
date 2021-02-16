@@ -9,15 +9,17 @@
 
 body {
   font-size: 16px;
+  height: 100vh;
 }
 
-#mob-nav {
-  justify-content: center;
-  background-color: var(--primary-color);
-  box-shadow: 0px 0 10px rgba(0, 0, 0, 0.8);
-}
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  body {
+    font-size: 20px;
+  }
 
-.nav-link {
-  font-family: 'Libre Barcode 128 Text', cursive;
-  font-size: 3.25rem;
+  .nav-link {
+    font-family: 'Libre Barcode 128 Text', cursive;
+    font-size: 3.25rem;
+  }
 }

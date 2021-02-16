@@ -1,0 +1,21 @@
+.card-blog {
+  background-color: var(--primary-color);
+  color: var(--light-color);
+}
+
+.card-blog-footer {
+  background-color: var(--dark-color);
+}
+
+.card-blog-footer a {
+  color: var(--light-color);
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .card-blog {
+    width: 30rem;
+    margin-right: 4rem;
+    margin-left: 4rem;
+  }
+}

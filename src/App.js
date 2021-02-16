@@ -1,18 +1,28 @@
 import React from 'react';
-import './App.css';
-import Header from'./header.js'
-import MobNav from './MobNav';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+// import { Switch, Route, Link } from 'react-router-dom';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Main from './components/Main/Main';
+import BlogCard from './components/BlogCard/BlogCard';
+import Header from './components/Header/Header';
+import MobNav from './components/MobNav/MobNav';
 
-
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <div className="container">
-    <Header />
-        <footer>
-          <MobNav>
-            {/* <Switch>
+    <Container fluid>
+      <Header />
+      <Row>
+        <Col>
+          <Main>
+            <BlogCard />
+            <BlogCard />
+          </Main>
+        </Col>
+      </Row>
+      <footer>
+        <MobNav>
+          {/* <Switch>
               <Route 
                 path="/articles"
                 render={(props) => <Articles articles={articles} {props} />}
@@ -22,11 +32,10 @@ function App() {
                 render={(props) => <Categories categories={categories} {props} />}
               />
             </Switch> */}
-          </MobNav>
-        </footer>
-      </div>
-    </div>
+        </MobNav>
+      </footer>
+    </Container>
   );
-}
+};
 
 export default App;
