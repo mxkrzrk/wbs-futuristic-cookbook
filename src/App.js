@@ -26,14 +26,17 @@ const App = () => {
   const [articles, setArticles] = useState();
 
   useState(() => {
-    fetch(`https://graphql.contentful.com/content/v1/spaces/4mgx4jgworh2/`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: 'Bearer tsqaIdeBMRvcsfvYMEdH_h2AsxVlrT8MrhAeuCNsaEw',
-      },
-      body: JSON.stringify({ query }),
-    })
+    fetch(
+      `https://graphql.contentful.com/content/v1/spaces/${process.env.REACT_APP_SPACE_ID}/`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
+        },
+        body: JSON.stringify({ query }),
+      }
+    )
       .then((res) => {
         if (res.ok) {
           return res.json();
