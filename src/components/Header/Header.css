@@ -17,8 +17,8 @@
 
 .hero h1 {
   letter-spacing: 1px;
+  font-family: var(--font-barcode);
   font-size: 2.5rem;
-  font-family: 'Libre Barcode 128 Text', cursive;
   color: var(--light-color);
   margin-bottom: 0;
 }
@@ -39,6 +39,6 @@
   }
 
   .hero h1 {
-    font-size: 4rem;
+    font-size: 3.5rem;
   }
 }
