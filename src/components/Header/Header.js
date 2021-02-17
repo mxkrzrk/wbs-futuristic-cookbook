@@ -3,8 +3,7 @@ import './Header.css';
 import Logo from '../../Images/logo.png';
 import Nav from '../Nav/Nav';
 
-function Header() {
-
+const Header = () => {
   const [isDesktop, setIsDesktop] = useState(window.innerWidth > 1024);
 
   const updateMedia = () => {
@@ -12,32 +11,28 @@ function Header() {
   };
 
   useEffect(() => {
-    window.addEventListener("resize", updateMedia);
-    return () => window.removeEventListener("resize", updateMedia);
+    window.addEventListener('resize', updateMedia);
+    return () => window.removeEventListener('resize', updateMedia);
   });
 
   return (
-    <header className="w-100">
-      <div className="hero col-12">
-        <img src={Logo} alt="cookbook"/>
-        <h1> Futuristic Cookbook</h1>
-        <Nav />
-      </div>
+    <header className="header">
+      {isDesktop ? (
+        <div className="col-12 d-flex justify-content-around align-items-center">
+          <div className="hero">
+            <img src={Logo} alt="cookbook" />
+            <h1> Futuristic Cookbook</h1>
+          </div>
+          <Nav />
+        </div>
+      ) : (
+        <div className="hero col-12">
+          <img src={Logo} alt="cookbook" />
+          <h1> Futuristic Cookbook</h1>
+        </div>
+      )}
     </header>
   );
-}
+};
 
 export default Header;
-
-// { isDesktop ? (
-//   <div className="hero col-12">
-//     <img src={Logo} alt="cookbook"/>
-//     <h1> Futuristic Cookbook</h1>
-//     <Nav />
-//   </div>
-// ) : (
-//   <div className="hero col-12">
-//     <img src={Logo} alt="cookbook"/>
-//     <h1> Futuristic Cookbook</h1>
-//   </div>
-// )}

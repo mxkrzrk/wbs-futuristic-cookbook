@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// import { Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -8,23 +8,11 @@ import BlogCard from './components/BlogCard/BlogCard';
 import Header from './components/Header/Header';
 import MobNav from './components/MobNav/MobNav';
 
-const query = `{
-  articleCollection {
-    items {
-      sys {
-        id
-      }
-      title
-      categories
-      image {
-        url
-      }
-      description {
-        json
-      }
-    }
-  }
-}`;
+const contentful = require('contentful');
+const client = contentful.createClient({
+  space: process.env.REACT_APP_SPACE_ID,
+  accessToken: process.env.REACT_APP_API_KEY,
+});
 
 const App = () => {
   const [articles, setArticles] = useState();
@@ -35,61 +23,41 @@ const App = () => {
   };
 
   useEffect(() => {
-    window.addEventListener("resize", updateMedia);
-    return () => window.removeEventListener("resize", updateMedia);
+    window.addEventListener('resize', updateMedia);
+    return () => window.removeEventListener('resize', updateMedia);
   });
 
-  useState(() => {
-    fetch(
-      `https://graphql.contentful.com/content/v1/spaces/${process.env.REACT_APP_SPACE_ID}/`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
-        },
-        body: JSON.stringify({ query }),
-      }
-    )
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-      })
-      .then((data) => {
-        setArticles(data.data.articleCollection.items);
-      })
+  useEffect(() => {
+    client
+      .getEntries()
+      .then((entries) => setArticles(entries.items))
       .catch((err) => console.log(err));
   }, []);
 
   return (
     <Container fluid>
-    <Row>
-      <Header />
-    </Row>
+      <Row>
+        <Header />
+      </Row>
       <Row>
         <Col>
           <Main>
-            {articles && articles.map((article) => <BlogCard key={article.sys.id} {...article} />)}
+            <Switch>
+              <Route path="/" exact>
+                {articles &&
+                  articles.map((article) => (
+                    <BlogCard key={article.sys.id} {...article.fields} />
+                  ))}
+              </Route>
+              <Route path="/categories">
+                <div>categories page</div>
+              </Route>
+              <Redirect to="/" />
+            </Switch>
           </Main>
         </Col>
       </Row>
-      <footer>
-          <MobNav>
-          {/* <Switch>
-              <Route 
-                path="/articles"
-                render={(props) => <Articles articles={articles} {props} />}
-              />
-              <Route 
-                path="/categories"
-                render={(props) => <Categories categories={categories} {props} />}
-              />
-            </Switch> */}
-        </MobNav>
-        
-        
-      </footer>
+      <footer>{isDesktop ? <MobNav /> : ''}</footer>
     </Container>
   );
 };

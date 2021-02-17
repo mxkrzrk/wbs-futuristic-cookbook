@@ -10,5 +10,10 @@
 }
 
 .navbar-light .navbar-nav .nav-link {
-  color: #dcdcdc;
+  color: var(--light-color);
+  font-size: 2.5rem;
+}
+
+.navmob-selected {
+  color: var(--dark-color);
 }

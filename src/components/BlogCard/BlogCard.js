@@ -2,11 +2,11 @@ import React from 'react';
 import './BlogCard.css';
 import Card from 'react-bootstrap/Card';
 
-const BlogCard = ({ title, image, description }) => {
+const BlogCard = ({ title, image }) => {
   return (
     <Card className="my-4 rounded card-blog">
       <Card.Header
-        style={{ backgroundImage: `url(${image.url})` }}
+        style={{ backgroundImage: `url(${image.fields.file.url})` }}
         className="card-image"
       />
       <Card.Body>
@@ -20,11 +20,3 @@ const BlogCard = ({ title, image, description }) => {
 };
 
 export default BlogCard;
-
-// const articleParagraph = description.json.content.map((text) =>
-//     text.content.map((txt) => txt.value).toString()
-//   );
-
-//   {articleParagraph.map((par, index) => (
-//     <Card.Text key={index}>{par}</Card.Text>
-//   ))}
