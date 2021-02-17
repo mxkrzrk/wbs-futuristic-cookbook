@@ -1,22 +1,31 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import './Nav.css';
 import Navbar from 'react-bootstrap/Navbar';
 
 const Nav = () => {
-
   return (
     <div>
-      <Navbar.Brand id="main-nav" className="inline-flex" fixed="bottom">
+      <Navbar.Brand className="inline-flex main-nav" fixed="bottom">
         <ul className="navbar-nav">
           <li className="nav-item">
-            <a className="nav-link" href="#">
+            <NavLink
+              className="nav-link"
+              activeClassName="nav-selected"
+              to="/"
+              exact
+            >
               Articles
-            </a>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">
+            <NavLink
+              className="nav-link"
+              activeClassName="nav-selected"
+              to="/categories"
+            >
               Categories
-            </a>
+            </NavLink>
           </li>
         </ul>
       </Navbar.Brand>

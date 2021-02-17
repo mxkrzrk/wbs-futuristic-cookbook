@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import './MobNav.css';
 import Navbar from 'react-bootstrap/Navbar';
 
@@ -8,14 +9,14 @@ const MobNav = () => {
       <Navbar id="mob-nav" fixed="bottom">
         <ul className="navbar-nav">
           <li className="nav-item col-6">
-            <a className="nav-link" href="#">
+            <NavLink className="nav-link" activeClassName="navmob-selected" to="/" exact>
               Articles
-            </a>
+            </NavLink>
           </li>
           <li className="nav-item col-6">
-            <a className="nav-link" href="#">
+            <NavLink className="nav-link" activeClassName="navmob-selected" to="/categories">
               Categories
-            </a>
+            </NavLink>
           </li>
         </ul>
       </Navbar>
