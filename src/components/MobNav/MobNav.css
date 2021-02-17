@@ -12,3 +12,7 @@
 .navbar-light .navbar-nav .nav-link {
   color: #dcdcdc;
 }
+
+.navmob-selected {
+  color: var(--dark-color);
+}
