@@ -1,21 +1,40 @@
 .card-blog {
   background-color: var(--primary-color);
   color: var(--light-color);
+  border: none;
+  box-shadow: 8px 7px 12px 0 rgba(255, 255, 255, 0.3);
+}
+
+.card-image {
+  height: 16rem;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: 3px solid var(--primary-color);
+}
+
+.card-title {
+  font-family: var(--font-barcode);
+  font-size: 2.5rem;
 }
 
 .card-blog-footer {
-  background-color: var(--dark-color);
+  background-color: var(--secondary-color);
 }
 
 .card-blog-footer a {
-  color: var(--light-color);
+  color: var(--dark-color);
 }
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   .card-blog {
-    width: 30rem;
-    margin-right: 4rem;
-    margin-left: 4rem;
+    width: 30%;
+    margin: 0 2rem;
+  }
+
+  .card-title {
+    font-family: var(--font-barcode);
+    font-size: 3rem;
   }
 }

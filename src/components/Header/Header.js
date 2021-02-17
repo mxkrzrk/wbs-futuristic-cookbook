@@ -5,11 +5,11 @@ import Nav from '../Nav/Nav';
 
 function Header() {
   return (
-    <header >
+    <header className="w-100">
       <div className="hero col-12">
         <img src={Logo} alt="cookbook"/>
         <h1> Futuristic Cookbook</h1>
-        <Nav />
+        {/* <Nav /> */}
       </div>
     </header>
   );
