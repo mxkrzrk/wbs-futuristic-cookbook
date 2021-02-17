@@ -4,7 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 
 const MobNav = () => {
   return (
-    <div className="container-sm inline-flex">
+    <div className="container-sm d-block d-lg-none">
       <Navbar id="mob-nav" fixed="bottom">
         <ul className="navbar-nav">
           <li className="nav-item col-6">

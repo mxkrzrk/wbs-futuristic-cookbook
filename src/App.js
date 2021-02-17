@@ -75,7 +75,6 @@ const App = () => {
         </Col>
       </Row>
       <footer>
-        { isDesktop ? (
           <MobNav>
           {/* <Switch>
               <Route 
@@ -88,9 +87,7 @@ const App = () => {
               />
             </Switch> */}
         </MobNav>
-        ) : (
-          ""
-        )}
+        
         
       </footer>
     </Container>
@@ -98,18 +95,3 @@ const App = () => {
 };
 
 export default App;
-
-{/* <header className="w-100">
-      { isDesktop ? (
-        <div className="hero col-12">
-          <img src={Logo} alt="cookbook"/>
-          <h1> Futuristic Cookbook</h1>
-          <Nav />
-        </div>
-      ) : (
-        <div className="hero col-12">
-          <img src={Logo} alt="cookbook"/>
-          <h1> Futuristic Cookbook</h1>
-        </div>
-      )}
-    </header> */}

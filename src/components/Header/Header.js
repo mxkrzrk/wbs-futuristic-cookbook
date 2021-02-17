@@ -18,20 +18,26 @@ function Header() {
 
   return (
     <header className="w-100">
-      { isDesktop ? (
-        <div className="hero col-12">
-          <img src={Logo} alt="cookbook"/>
-          <h1> Futuristic Cookbook</h1>
-          <Nav />
-        </div>
-      ) : (
-        <div className="hero col-12">
-          <img src={Logo} alt="cookbook"/>
-          <h1> Futuristic Cookbook</h1>
-        </div>
-      )}
+      <div className="hero col-12">
+        <img src={Logo} alt="cookbook"/>
+        <h1> Futuristic Cookbook</h1>
+        <Nav />
+      </div>
     </header>
   );
 }
 
 export default Header;
+
+// { isDesktop ? (
+//   <div className="hero col-12">
+//     <img src={Logo} alt="cookbook"/>
+//     <h1> Futuristic Cookbook</h1>
+//     <Nav />
+//   </div>
+// ) : (
+//   <div className="hero col-12">
+//     <img src={Logo} alt="cookbook"/>
+//     <h1> Futuristic Cookbook</h1>
+//   </div>
+// )}

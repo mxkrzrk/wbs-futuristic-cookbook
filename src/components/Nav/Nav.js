@@ -6,7 +6,7 @@ const Nav = () => {
 
   return (
     <div>
-      <Navbar.Brand id="main-nav" className="inline-flex" fixed="bottom">
+      <Navbar.Brand id="main-nav" className="inline-flex d-none d-lg-block">
         <ul className="navbar-nav">
           <li className="nav-item">
             <a className="nav-link" href="#">
