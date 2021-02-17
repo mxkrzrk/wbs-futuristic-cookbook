@@ -16,11 +16,13 @@ const Header = () => {
   });
 
   return (
-    <header className="w-100">
+    <header className="header">
       {isDesktop ? (
-        <div className="hero col-12">
-          <img src={Logo} alt="cookbook" />
-          <h1> Futuristic Cookbook</h1>
+        <div className="col-12 d-flex justify-content-around align-items-center">
+          <div className="hero">
+            <img src={Logo} alt="cookbook" />
+            <h1> Futuristic Cookbook</h1>
+          </div>
           <Nav />
         </div>
       ) : (

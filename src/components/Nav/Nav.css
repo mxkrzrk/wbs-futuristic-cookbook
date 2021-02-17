@@ -1,5 +1,4 @@
 .main-nav {
-  background-color: var(--primary-color);
   justify-content: flex-end;
 }
 
@@ -11,7 +10,7 @@
 
 .main-nav a {
   text-decoration: none;
-  color: #dcdcdc;
+  color: var(--light-color);
   margin-left: 6rem;
   justify-content: space-between;
 }
