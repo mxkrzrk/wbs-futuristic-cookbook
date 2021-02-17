@@ -10,6 +10,7 @@
 body {
   font-size: 16px;
   height: 100vh;
+  background-color: var(--dark-color);
 }
 
 /* Large devices (desktops, 992px and up) */
@@ -17,5 +18,4 @@ body {
   body {
     font-size: 20px;
   }
-
 }

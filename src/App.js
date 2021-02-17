@@ -11,7 +11,11 @@ import MobNav from './components/MobNav/MobNav';
 const query = `{
   articleCollection {
     items {
+      sys {
+        id
+      }
       title
+      categories
       image {
         url
       }
@@ -50,12 +54,13 @@ const App = () => {
 
   return (
     <Container fluid>
+    <Row>
       <Header />
+    </Row>
       <Row>
         <Col>
           <Main>
-            <BlogCard />
-            <BlogCard />
+            {articles && articles.map((article) => <BlogCard key={article.sys.id} {...article} />)}
           </Main>
         </Col>
       </Row>

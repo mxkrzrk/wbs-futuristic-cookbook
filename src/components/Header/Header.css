@@ -1,22 +1,30 @@
 .hero {
-  border-bottom: 1em;
-  display: inline-flex;
+  border-bottom: 1rem;
+  display: flex;
   justify-content: center;
   align-items: center;
   height: auto;
   background-color: #778899;
+  padding: 1rem 0;
 }
 
 .hero h1 {
-  /* text-align: center; */
   letter-spacing: 1px;
-  font-size: 5rem;
+  font-size: 2.5rem;
   font-family: 'Libre Barcode 128 Text', cursive;
   color: #dcdcdc;
+  margin-bottom: 0;
 }
 
 .hero img {
-  padding: 1em;
-  width: 9em;
-  /* justify-content: left; */
+  padding: 1rem;
+  width: 7rem;
+}
+
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .hero h1 {
+    font-size: 4rem;
+  }
 }
