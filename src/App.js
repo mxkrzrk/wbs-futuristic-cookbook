@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 // import { Switch, Route, Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -28,6 +28,16 @@ const query = `{
 
 const App = () => {
   const [articles, setArticles] = useState();
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth < 1024);
+
+  const updateMedia = () => {
+    setIsDesktop(window.innerWidth < 1024);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", updateMedia);
+    return () => window.removeEventListener("resize", updateMedia);
+  });
 
   useState(() => {
     fetch(
@@ -65,7 +75,8 @@ const App = () => {
         </Col>
       </Row>
       <footer>
-        <MobNav>
+        { isDesktop ? (
+          <MobNav>
           {/* <Switch>
               <Route 
                 path="/articles"
@@ -77,9 +88,28 @@ const App = () => {
               />
             </Switch> */}
         </MobNav>
+        ) : (
+          ""
+        )}
+        
       </footer>
     </Container>
   );
 };
 
 export default App;
+
+{/* <header className="w-100">
+      { isDesktop ? (
+        <div className="hero col-12">
+          <img src={Logo} alt="cookbook"/>
+          <h1> Futuristic Cookbook</h1>
+          <Nav />
+        </div>
+      ) : (
+        <div className="hero col-12">
+          <img src={Logo} alt="cookbook"/>
+          <h1> Futuristic Cookbook</h1>
+        </div>
+      )}
+    </header> */}
