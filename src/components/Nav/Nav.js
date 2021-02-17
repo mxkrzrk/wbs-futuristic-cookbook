@@ -3,9 +3,10 @@ import './Nav.css';
 import Navbar from 'react-bootstrap/Navbar';
 
 const Nav = () => {
+
   return (
     <div>
-      <Navbar.Brand id="main-nav" fixed="bottom">
+      <Navbar.Brand id="main-nav" className="inline-flex" fixed="bottom">
         <ul className="navbar-nav">
           <li className="nav-item">
             <a className="nav-link" href="#">
