@@ -16,16 +16,6 @@ const client = contentful.createClient({
 
 const App = () => {
   const [articles, setArticles] = useState();
-  const [isDesktop, setIsDesktop] = useState(window.innerWidth < 1024);
-
-  const updateMedia = () => {
-    setIsDesktop(window.innerWidth < 1024);
-  };
-
-  useEffect(() => {
-    window.addEventListener('resize', updateMedia);
-    return () => window.removeEventListener('resize', updateMedia);
-  });
 
   useEffect(() => {
     client
@@ -57,7 +47,9 @@ const App = () => {
           </Main>
         </Col>
       </Row>
-      <footer>{isDesktop ? <MobNav /> : ''}</footer>
+      <footer>
+        <MobNav />
+      </footer>
     </Container>
   );
 };
