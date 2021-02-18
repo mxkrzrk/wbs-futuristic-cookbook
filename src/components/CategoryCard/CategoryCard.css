@@ -5,16 +5,21 @@
 }
 
 .category-card:last-of-type {
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
 .category-image {
-    height: 16rem;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    border: 3px solid var(--primary-color);
-  }
+  height: 16rem;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: 3px solid var(--primary-color);
+}
+
+.category-card-title {
+  font-size: 2.5rem;
+  color: var(--light-color);
+}
 
 .category-card-button {
   background-color: var(--secondary-color);
@@ -39,5 +44,9 @@
 
   .category-image {
     height: 24rem;
+  }
+
+  .category-card-title {
+    font-size: 3.5rem;
   }
 }

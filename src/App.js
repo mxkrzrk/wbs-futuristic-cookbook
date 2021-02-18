@@ -41,7 +41,7 @@ const App = () => {
                   ))}
               </Route>
               <Route path="/categories">
-                <Categories />
+                <Categories articles={articles} />
               </Route>
               <Redirect to="/" />
             </Switch>
