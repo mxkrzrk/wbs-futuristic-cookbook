@@ -11,6 +11,7 @@ body {
   font-size: 16px;
   height: 100vh;
   background-color: var(--dark-color);
+  font-family: var(--font-orbit);
 }
 
 /* Large devices (desktops, 992px and up) */
