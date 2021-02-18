@@ -6,7 +6,10 @@ import Navbar from 'react-bootstrap/Navbar';
 const Nav = () => {
   return (
     <div>
-      <Navbar.Brand className="inline-flex main-nav d-none d-lg-block" fixed="bottom">
+      <Navbar.Brand
+        className="inline-flex main-nav d-none d-lg-block"
+        fixed="bottom"
+      >
         <ul className="navbar-nav">
           <li className="nav-item">
             <NavLink
@@ -23,6 +26,7 @@ const Nav = () => {
               className="nav-link"
               activeClassName="nav-selected"
               to="/categories"
+              exact
             >
               Categories
             </NavLink>
