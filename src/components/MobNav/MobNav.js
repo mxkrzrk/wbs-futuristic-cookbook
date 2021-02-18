@@ -9,12 +9,22 @@ const MobNav = () => {
       <Navbar id="mob-nav" fixed="bottom">
         <ul className="navbar-nav">
           <li className="nav-item col-6">
-            <NavLink className="nav-link" activeClassName="navmob-selected" to="/" exact>
+            <NavLink
+              className="nav-link"
+              activeClassName="navmob-selected"
+              to="/"
+              exact
+            >
               Articles
             </NavLink>
           </li>
           <li className="nav-item col-6">
-            <NavLink className="nav-link" activeClassName="navmob-selected" to="/categories">
+            <NavLink
+              className="nav-link"
+              activeClassName="navmob-selected"
+              to="/categories"
+              exact
+            >
               Categories
             </NavLink>
           </li>

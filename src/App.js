@@ -7,6 +7,8 @@ import Main from './components/Main/Main';
 import BlogCard from './components/BlogCard/BlogCard';
 import Header from './components/Header/Header';
 import MobNav from './components/MobNav/MobNav';
+import Categories from './pages/Categories/Categories';
+import Category from './pages/Category/Category';
 
 const contentful = require('contentful');
 const client = contentful.createClient({
@@ -39,8 +41,11 @@ const App = () => {
                     <BlogCard key={article.sys.id} {...article.fields} />
                   ))}
               </Route>
-              <Route path="/categories">
-                <div>categories page</div>
+              <Route path="/categories" exact>
+                <Categories articles={articles} />
+              </Route>
+              <Route path="/categories/:category">
+                <Category articles={articles} />
               </Route>
               <Redirect to="/" />
             </Switch>
