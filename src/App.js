@@ -11,14 +11,19 @@ import MobNav from './components/MobNav/MobNav';
 import Categories from './pages/Categories/Categories';
 import Category from './pages/Category/Category';
 import Article from './pages/Article/Article';
+import Spinner from 'react-bootstrap/Spinner';
 
 const App = () => {
   const [articles, setArticles] = useState();
+  const [loader, setLoader] = useState(true);
 
   useEffect(() => {
     client
       .getEntries()
-      .then((entries) => setArticles(entries.items))
+      .then((entries) => {
+        setArticles(entries.items);
+        setLoader(false);
+      })
       .catch((err) => console.log(err));
   }, []);
 
@@ -32,6 +37,11 @@ const App = () => {
           <Main>
             <Switch>
               <Route path="/" exact>
+                {loader && (
+                  <div className="d-flex justify-content-center align-items-center loader">
+                    <Spinner animation="grow" />
+                  </div>
+                )}
                 {articles &&
                   articles.map((article) => (
                     <BlogCard key={article.sys.id} {...article} />

@@ -15,6 +15,16 @@ body {
   font-family: var(--font-orbit);
 }
 
+.loader {
+  color: var(--red-color);
+  height: 10rem;
+}
+
+.loader > div {
+  height: 4rem;
+  width: 4rem;
+}
+
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   body {
