@@ -12,6 +12,7 @@ import Categories from './pages/Categories/Categories';
 import Category from './pages/Category/Category';
 import Article from './pages/Article/Article';
 import Spinner from 'react-bootstrap/Spinner';
+import ScrollTopPage from './components/ScrollTopPage/ScrollTopPage';
 
 const App = () => {
   const [articles, setArticles] = useState();
@@ -37,24 +38,32 @@ const App = () => {
           <Main>
             <Switch>
               <Route path="/" exact>
-                {loader && (
-                  <div className="d-flex justify-content-center align-items-center loader">
-                    <Spinner animation="grow" />
-                  </div>
-                )}
-                {articles &&
-                  articles.map((article) => (
-                    <BlogCard key={article.sys.id} {...article} />
-                  ))}
+                <ScrollTopPage>
+                  {loader && (
+                    <div className="d-flex justify-content-center align-items-center loader">
+                      <Spinner animation="grow" />
+                    </div>
+                  )}
+                  {articles &&
+                    articles.map((article) => (
+                      <BlogCard key={article.sys.id} {...article} />
+                    ))}
+                </ScrollTopPage>
               </Route>
               <Route path="/article/:id">
-                <Article />
+                <ScrollTopPage>
+                  <Article />
+                </ScrollTopPage>
               </Route>
               <Route path="/categories" exact>
-                <Categories articles={articles} />
+                <ScrollTopPage>
+                  <Categories articles={articles} />
+                </ScrollTopPage>
               </Route>
               <Route path="/categories/:category">
-                <Category articles={articles} />
+                <ScrollTopPage>
+                  <Category articles={articles} />
+                </ScrollTopPage>
               </Route>
               <Redirect to="/" />
             </Switch>
