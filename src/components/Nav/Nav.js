@@ -1,6 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Nav.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserAstronaut } from '@fortawesome/free-solid-svg-icons';
 import Navbar from 'react-bootstrap/Navbar';
 
 const Nav = () => {
@@ -10,6 +12,7 @@ const Nav = () => {
         className="inline-flex main-nav d-none d-lg-block"
         fixed="bottom"
       >
+        <FontAwesomeIcon icon={faUserAstronaut} className="main-nav-icon"/>
         <ul className="navbar-nav">
           <li className="nav-item">
             <NavLink

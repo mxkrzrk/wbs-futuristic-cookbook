@@ -1,25 +1,33 @@
 .main-nav {
   justify-content: flex-end;
+  background-color: var(--dark-color);
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+.main-nav-icon {
+  color: var(--red-color);
+  font-size: 2rem;
 }
 
 .main-nav ul {
   display: inline-flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 .main-nav a {
   text-decoration: none;
   color: var(--light-color);
-  margin-left: 6rem;
+  margin: 0 3rem;
   justify-content: space-between;
 }
 
 .main-nav a:hover,
 .main-nav a:active {
-  color: black;
+  color: var(--red-color);
 }
 
 .nav-selected {
-  color: var(--dark-color) !important;
+  color: var(--red-color) !important;
 }

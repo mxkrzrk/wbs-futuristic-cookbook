@@ -3,7 +3,7 @@ import './Main.css';
 
 const Main = ({ children }) => {
   return (
-    <div className="d-lg-flex justify-content-lg-center align-items-lg-center main-blog flex-wrap">
+    <div className="d-md-flex justify-content-md-center align-items-md-center main-blog flex-wrap">
       {children}
     </div>
   );

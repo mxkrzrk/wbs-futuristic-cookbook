@@ -26,6 +26,18 @@
   color: var(--dark-color);
 }
 
+.card-blog-footer-icon {
+  margin-right: 1rem;
+  color: var(--red-color);
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .card-blog {
+    width: 60%;
+  }
+}
+
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   .card-blog {

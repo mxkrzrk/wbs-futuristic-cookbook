@@ -1,12 +1,25 @@
-#mob-nav {
+.mob-nav {
   justify-content: center;
   background-color: var(--primary-color);
   box-shadow: 0px 0 10px rgba(0, 0, 0, 0.8);
+  padding: 0.5rem;
+}
+
+.mob-nav-box {
+  background-color: var(--dark-color);
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+.navmob-icon {
+  color: var(--red-color);
+  font-size: 2rem;
+  margin: 0.5rem;
 }
 
 .nav-link {
   font-family: var(--font-barcode);
-  font-size: 3rem;
+  font-size: 2.5rem !important;
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -15,5 +28,5 @@
 }
 
 .navmob-selected {
-  color: var(--dark-color);
+  color: var(--red-color) !important;
 }
