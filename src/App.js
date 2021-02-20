@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
+import { client } from './contentful';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -9,12 +10,7 @@ import Header from './components/Header/Header';
 import MobNav from './components/MobNav/MobNav';
 import Categories from './pages/Categories/Categories';
 import Category from './pages/Category/Category';
-
-const contentful = require('contentful');
-const client = contentful.createClient({
-  space: process.env.REACT_APP_SPACE_ID,
-  accessToken: process.env.REACT_APP_API_KEY,
-});
+import Article from './pages/Article/Article';
 
 const App = () => {
   const [articles, setArticles] = useState();
@@ -38,8 +34,11 @@ const App = () => {
               <Route path="/" exact>
                 {articles &&
                   articles.map((article) => (
-                    <BlogCard key={article.sys.id} {...article.fields} />
+                    <BlogCard key={article.sys.id} {...article} />
                   ))}
+              </Route>
+              <Route path="/article/:id">
+                <Article />
               </Route>
               <Route path="/categories" exact>
                 <Categories articles={articles} />
