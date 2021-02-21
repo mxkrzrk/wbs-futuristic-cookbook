@@ -12,8 +12,8 @@ const Nav = () => {
         className="inline-flex main-nav d-none d-lg-block"
         fixed="bottom"
       >
-        <FontAwesomeIcon icon={faUserAstronaut} className="main-nav-icon"/>
-        <ul className="navbar-nav">
+        
+        <ul className="navbar-nav d-flex justify-content-between align-items-center">
           <li className="nav-item">
             <NavLink
               className="nav-link"
@@ -24,6 +24,7 @@ const Nav = () => {
               Articles
             </NavLink>
           </li>
+          <FontAwesomeIcon icon={faUserAstronaut} className="main-nav-icon"/>
           <li className="nav-item">
             <NavLink
               className="nav-link"
