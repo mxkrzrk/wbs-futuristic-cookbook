@@ -21,6 +21,7 @@
 .article-card-body {
   line-height: 2.5rem;
   word-spacing: 0.3rem;
+  letter-spacing: 0.1rem;
 }
 
 /* Large devices (desktops, 992px and up) */

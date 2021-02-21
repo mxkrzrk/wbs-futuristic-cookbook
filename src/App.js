@@ -13,6 +13,7 @@ import Category from './pages/Category/Category';
 import Article from './pages/Article/Article';
 import Spinner from 'react-bootstrap/Spinner';
 import ScrollTopPage from './components/ScrollTopPage/ScrollTopPage';
+import Footer from './components/Footer/Footer';
 
 const App = () => {
   const [articles, setArticles] = useState();
@@ -67,12 +68,11 @@ const App = () => {
               </Route>
               <Redirect to="/" />
             </Switch>
+            <Footer />
           </Main>
         </Col>
       </Row>
-      <footer>
-        <MobNav />
-      </footer>
+      <MobNav />
     </Container>
   );
 };
