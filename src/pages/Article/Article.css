@@ -18,6 +18,11 @@
   font-size: 2.5rem;
 }
 
+.article-card-body {
+  line-height: 2.5rem;
+  word-spacing: 0.3rem;
+}
+
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   .article-card {

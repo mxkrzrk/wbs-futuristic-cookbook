@@ -35,7 +35,7 @@ const Article = () => {
             className="article-card-header"
           ></Card.Header>
           <Card.Img variant="top" />
-          <Card.Body className="p-4">
+          <Card.Body className="p-4 article-card-body">
             <Card.Title as="h2" className="py-4 text-center">
               {article.title}
             </Card.Title>
