@@ -66,7 +66,7 @@ const App = () => {
                   <Category articles={articles} />
                 </ScrollTopPage>
               </Route>
-              <Redirect to="/" />
+              <Redirect to="/" exact />
             </Switch>
             <Footer />
           </Main>
