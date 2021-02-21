@@ -6,7 +6,7 @@
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   .main-blog {
-    margin: 12rem 0 8rem 0;
+    margin: 12rem 0 2rem 0;
     width: 100%;
   }
 }

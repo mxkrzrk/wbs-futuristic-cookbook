@@ -1,10 +1,11 @@
 :root {
   --font-barcode: 'Libre Barcode 128 Text', cursive;
   --font-orbit: 'Orbitron', sans-serif;
-  --primary-color: #778899;
+  --primary-color: #1c2840;
   --secondary-color: #dcdcdc;
   --dark-color: #010104;
   --light-color: #f1efff;
+  --red-color: #912740;
 }
 
 body {
@@ -12,6 +13,16 @@ body {
   height: 100vh;
   background-color: var(--dark-color);
   font-family: var(--font-orbit);
+}
+
+.loader {
+  color: var(--red-color);
+  height: 10rem;
+}
+
+.loader > div {
+  height: 4rem;
+  width: 4rem;
 }
 
 /* Large devices (desktops, 992px and up) */
