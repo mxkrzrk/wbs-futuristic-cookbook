@@ -1,5 +1,7 @@
 {
-  "name": "fredsprofile",
+  "name": "wbs-futuristic-cookbook",
+  "author": "WBS[WD#011] Group Team",
+  "description": "Futuristic Cookbook Blog",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
