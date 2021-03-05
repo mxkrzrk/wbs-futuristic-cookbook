@@ -5,12 +5,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRocket } from '@fortawesome/free-solid-svg-icons';
 import Card from 'react-bootstrap/Card';
 
-const BlogCard = ({ fields, sys }) => {
-  const { title, image } = fields;
+const BlogCard = ({title, articleid }) => {
   return (
     <Card className="my-4 rounded card-blog">
       <Card.Header
-        style={{ backgroundImage: `url(${image.fields.file.url})` }}
+        style={{ backgroundImage: `url()` }}
         className="card-image"
       />
       <Card.Body>
@@ -18,7 +17,7 @@ const BlogCard = ({ fields, sys }) => {
       </Card.Body>
       <Card.Footer className="card-blog-footer d-flex justify-content-start align-items-center">
         <FontAwesomeIcon icon={faRocket} className="card-blog-footer-icon" />
-        <Link to={`/article/${sys.id}`}>Go to the recipe</Link>
+        <Link to={`/article/${articleid}`}>Go to the recipe</Link>
       </Card.Footer>
     </Card>
   );

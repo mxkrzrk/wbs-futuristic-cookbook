@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import { client } from './contentful';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -20,14 +19,23 @@ const App = () => {
   const [loader, setLoader] = useState(true);
 
   useEffect(() => {
-    client
-      .getEntries()
-      .then((entries) => {
-        setArticles(entries.items);
-        setLoader(false);
-      })
-      .catch((err) => console.log(err));
+    fetchArticles();
   }, []);
+
+  const fetchArticles = async () => {
+    try {
+      const res = await fetch(process.env.REACT_APP_API_URL + '/articles');
+      const data = await res.json();
+      if (res.ok) {
+        setArticles(data.data);
+        setLoader(false);
+      } else {
+        throw new Error(data.error);
+      }
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
 
   return (
     <Container fluid>
@@ -47,7 +55,7 @@ const App = () => {
                   )}
                   {articles &&
                     articles.map((article) => (
-                      <BlogCard key={article.sys.id} {...article} />
+                      <BlogCard key={article.articleid} {...article} />
                     ))}
                 </ScrollTopPage>
               </Route>

@@ -17,7 +17,8 @@ const Categories = ({ articles }) => {
     if (articles) {
       const categoriesUpdate = categories.map((category) => {
         let categoryTotalArticles = articles.filter(
-          (article) => article.fields.categories === category.title
+          (article) =>
+            article.categories.toLowerCase() === category.title.toLowerCase()
         ).length;
         return {
           ...category,

@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { client } from '../../contentful';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import './Article.css';
 import Card from 'react-bootstrap/Card';
 import Spinner from 'react-bootstrap/Spinner';
@@ -12,14 +10,26 @@ const Article = () => {
   const [loader, setLoader] = useState(true);
 
   useEffect(() => {
-    client
-      .getEntry(params.id)
-      .then((entry) => {
-        setArticle(entry.fields);
-        setLoader(false);
-      })
-      .catch((err) => console.log(err));
+    fetchArticle(params.id);
   }, []);
+
+  const fetchArticle = async (articleid) => {
+    try {
+      const res = await fetch(
+        process.env.REACT_APP_API_URL + `/articles/${articleid}`
+      );
+      const data = await res.json();
+      if (res.ok) {
+        setArticle(data.data[0]);
+        setLoader(false);
+        console.log(Array.from(data.data[0].directions.split('.')));
+      } else {
+        throw new Error(data.error);
+      }
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
 
   return (
     <>
@@ -31,7 +41,7 @@ const Article = () => {
       {article && (
         <Card className="article-card">
           <Card.Header
-            style={{ backgroundImage: `url(${article.image.fields.file.url})` }}
+            style={{ backgroundImage: `url()` }}
             className="article-card-header"
           ></Card.Header>
           <Card.Img variant="top" />
@@ -40,7 +50,22 @@ const Article = () => {
               {article.title}
             </Card.Title>
             <div className="py-3">
-              {documentToReactComponents(article.description)}
+              <h3>Ingredients:</h3>
+              <ul>
+                {article.ingredients.split(/\d/g).map((el) => (
+                  <li>{el}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="py-3">
+              <h3>Directions:</h3>
+              <ul>
+                {article.directions
+                  .split('Step')
+                  .map((el, index) =>
+                    index === 0 ? null : <li>Step {el}</li>
+                  )}
+              </ul>
             </div>
           </Card.Body>
         </Card>

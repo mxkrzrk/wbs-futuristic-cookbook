@@ -9,8 +9,8 @@ const Category = ({ articles }) => {
     <>
       {articles
         ? articles
-            .filter((article) => article.fields.categories === params.category)
-            .map((article) => <BlogCard key={article.sys.id} {...article} />)
+            .filter((article) => article.categories === params.category)
+            .map((article) => <BlogCard key={article.articleid} {...article} />)
         : history.push('/')}
     </>
   );
