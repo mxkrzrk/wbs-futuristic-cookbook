@@ -5,6 +5,11 @@
   box-shadow: 8px 7px 12px 0 rgba(255, 255, 255, 0.3);
 }
 
+.create-article-card p {
+  margin: 0;
+  font-size: 0.8rem;
+}
+
 .create-article-header {
   font-family: var(--font-barcode);
   color: var(--light-color);
@@ -14,10 +19,12 @@
 
 .create-article-input-label {
   color: var(--light-color);
+  font-size: 1.2rem;
 }
 
 .create-article-input {
   font-family: var(--font-orbit);
+  font-size: 1rem;
 }
 
 .create-article-card-body {
@@ -64,5 +71,17 @@
 
   .create-article-button {
     padding: 1rem 2rem;
+  }
+
+  .create-article-card p {
+    font-size: 1rem;
+  }
+
+  .create-article-input-label {
+    font-size: 1.5rem;
+  }
+
+  .create-article-input {
+    font-size: 1.2rem;
   }
 }

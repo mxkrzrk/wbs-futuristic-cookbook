@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import parse from 'html-react-parser';
 import './Article.css';
 import Card from 'react-bootstrap/Card';
 import Spinner from 'react-bootstrap/Spinner';
@@ -22,7 +23,6 @@ const Article = () => {
       if (res.ok) {
         setArticle(data.data[0]);
         setLoader(false);
-        console.log(Array.from(data.data[0].directions.split('.')));
       } else {
         throw new Error(data.error);
       }
@@ -49,24 +49,7 @@ const Article = () => {
             <Card.Title as="h2" className="py-4 text-center">
               {article.title}
             </Card.Title>
-            <div className="py-3">
-              <h3>Ingredients:</h3>
-              <ul>
-                {article.ingredients.split(/\d/g).map((el) => (
-                  <li>{el}</li>
-                ))}
-              </ul>
-            </div>
-            <div className="py-3">
-              <h3>Directions:</h3>
-              <ul>
-                {article.directions
-                  .split('Step')
-                  .map((el, index) =>
-                    index === 0 ? null : <li>Step {el}</li>
-                  )}
-              </ul>
-            </div>
+            <div className="py-3">{parse(article.description)}</div>
           </Card.Body>
         </Card>
       )}

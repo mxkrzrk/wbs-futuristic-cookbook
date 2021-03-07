@@ -7,7 +7,6 @@
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^26.0.0",
     "@ckeditor/ckeditor5-react": "^3.0.1",
-    "@contentful/rich-text-react-renderer": "^14.1.2",
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@fortawesome/react-fontawesome": "^0.1.14",
@@ -15,13 +14,14 @@
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.7.1",
     "bootstrap": "^4.6.0",
-    "contentful": "^8.1.7",
     "gh-pages": "^3.1.0",
+    "html-react-parser": "^1.2.4",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.3",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.2",
+    "uuid": "^8.3.2",
     "web-vitals": "^1.1.0"
   },
   "scripts": {

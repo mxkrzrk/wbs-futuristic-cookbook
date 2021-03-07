@@ -17,7 +17,7 @@ const CategoryCard = ({ image, title, total }) => {
       <Card.Body className="d-flex justify-content-between justify-content-md-around align-items-center category-card-body">
         <Card.Title className="mb-0 category-card-title">{title}</Card.Title>
         <Card.Text>
-          <Link to={`/categories/${title}`}>
+          <Link to={`/categories/${title.toLowerCase()}`}>
             <Button className="category-card-button">
               <FontAwesomeIcon
                 icon={faMeteor}

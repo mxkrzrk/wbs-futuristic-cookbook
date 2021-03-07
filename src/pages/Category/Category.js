@@ -9,7 +9,7 @@ const Category = ({ articles }) => {
     <>
       {articles
         ? articles
-            .filter((article) => article.categories === params.category)
+            .filter((article) => article.category === params.category)
             .map((article) => <BlogCard key={article.articleid} {...article} />)
         : history.push('/')}
     </>
