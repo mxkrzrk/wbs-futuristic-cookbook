@@ -1,0 +1,68 @@
+.create-article-card {
+  background-color: var(--primary-color);
+  color: var(--dark-color);
+  border: none;
+  box-shadow: 8px 7px 12px 0 rgba(255, 255, 255, 0.3);
+}
+
+.create-article-header {
+  font-family: var(--font-barcode);
+  color: var(--light-color);
+  font-size: 3rem;
+  padding: 2rem;
+}
+
+.create-article-input-label {
+  color: var(--light-color);
+}
+
+.create-article-input {
+  font-family: var(--font-orbit);
+}
+
+.create-article-card-body {
+  line-height: 2.5rem;
+  word-spacing: 0.3rem;
+  letter-spacing: 0.1rem;
+}
+
+.create-article-button {
+  background-color: var(--secondary-color);
+  border: none;
+  color: var(--dark-color);
+  padding: 0.5rem 1rem;
+}
+
+.create-article-button:focus,
+.create-article-button:hover,
+.create-article-button:active {
+  background-color: var(--dark-color) !important;
+  border: none;
+  box-shadow: none !important;
+  color: var(--light-color);
+}
+
+.create-article-button-icon {
+  color: var(--red-color);
+  margin-right: 0.5rem;
+}
+
+.create-article-button-badge {
+  color: var(--red-color);
+  margin-left: 0.5rem;
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .create-article-card {
+    width: 80%;
+  }
+
+  .create-article-header {
+    font-size: 4rem;
+  }
+
+  .create-article-button {
+    padding: 1rem 2rem;
+  }
+}

@@ -13,6 +13,7 @@ import Article from './pages/Article/Article';
 import Spinner from 'react-bootstrap/Spinner';
 import ScrollTopPage from './components/ScrollTopPage/ScrollTopPage';
 import Footer from './components/Footer/Footer';
+import CreateArticle from './pages/CreateArticle/CreateArticle';
 
 const App = () => {
   const [articles, setArticles] = useState();
@@ -62,6 +63,11 @@ const App = () => {
               <Route path="/article/:id">
                 <ScrollTopPage>
                   <Article />
+                </ScrollTopPage>
+              </Route>
+              <Route path="/article" exact>
+                <ScrollTopPage>
+                  <CreateArticle />
                 </ScrollTopPage>
               </Route>
               <Route path="/categories" exact>
