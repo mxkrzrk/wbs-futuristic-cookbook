@@ -14,6 +14,7 @@ import Spinner from 'react-bootstrap/Spinner';
 import ScrollTopPage from './components/ScrollTopPage/ScrollTopPage';
 import Footer from './components/Footer/Footer';
 import CreateArticle from './pages/CreateArticle/CreateArticle';
+import CreateButton from './components/CreateButton/CreateButton';
 
 const App = () => {
   const [articles, setArticles] = useState();
@@ -58,6 +59,7 @@ const App = () => {
                     articles.map((article) => (
                       <BlogCard key={article.articleid} {...article} />
                     ))}
+                  <CreateButton />
                 </ScrollTopPage>
               </Route>
               <Route path="/article/:id">
