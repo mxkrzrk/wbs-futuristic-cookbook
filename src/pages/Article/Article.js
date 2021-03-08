@@ -41,7 +41,9 @@ const Article = () => {
       {article && (
         <Card className="article-card">
           <Card.Header
-            style={{ backgroundImage: `url()` }}
+            style={{
+              backgroundImage: `url(${process.env.REACT_APP_STATIC_URL}/${article.imagename})`,
+            }}
             className="article-card-header"
           ></Card.Header>
           <Card.Img variant="top" />

@@ -5,11 +5,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRocket } from '@fortawesome/free-solid-svg-icons';
 import Card from 'react-bootstrap/Card';
 
-const BlogCard = ({title, articleid }) => {
+const BlogCard = ({ title, articleid, imagename }) => {
   return (
     <Card className="my-4 rounded card-blog">
       <Card.Header
-        style={{ backgroundImage: `url()` }}
+        style={{
+          backgroundImage: `url(${process.env.REACT_APP_STATIC_URL}/${imagename})`,
+        }}
         className="card-image"
       />
       <Card.Body>
