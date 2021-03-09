@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { fetchArticles } from '../../api';
 import mainImage from '../../Images/cookbook-1.jpg';
 import dessertsImage from '../../Images/cookbook-2.jpg';
 import drinksImage from '../../Images/cookbook-3.png';
 import CategoryCard from '../../components/CategoryCard/CategoryCard';
 
-const Categories = ({ articles }) => {
-  const history = useHistory();
+const Categories = () => {
   const [categories, setCategories] = useState([
     { title: 'Main', image: mainImage, total: 0 },
     { title: 'Desserts', image: dessertsImage, total: 0 },
@@ -14,9 +13,9 @@ const Categories = ({ articles }) => {
   ]);
 
   useEffect(() => {
-    if (articles) {
+    fetchArticles().then((data) => {
       const categoriesUpdate = categories.map((category) => {
-        let categoryTotalArticles = articles.filter(
+        let categoryTotalArticles = data.filter(
           (article) =>
             article.category.toLowerCase() === category.title.toLowerCase()
         ).length;
@@ -26,10 +25,7 @@ const Categories = ({ articles }) => {
         };
       });
       setCategories(categoriesUpdate);
-    } else {
-      // If articles is empty come back to home
-      history.push('/');
-    }
+    });
   }, []);
 
   return (
