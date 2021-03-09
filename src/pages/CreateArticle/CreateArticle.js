@@ -84,9 +84,15 @@ const CreateArticle = () => {
         ...prevState,
         form: true,
         description: false,
+        image: true,
       }));
     } else if (newArticle.imagename) {
-      setValidated((prevState) => ({ ...prevState, form: true, image: false }));
+      setValidated((prevState) => ({
+        ...prevState,
+        form: true,
+        description: true,
+        image: false,
+      }));
     } else {
       setValidated({ form: true, description: true, image: true });
     }
