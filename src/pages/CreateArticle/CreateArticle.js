@@ -12,13 +12,16 @@ import BlogAlert from '../../components/BlogAlert/BlogAlert';
 
 const CreateArticle = () => {
   const [newArticle, setNewArticle] = useState({
+    articleID: '',
     title: '',
     description: '',
     category: '',
+    imagename: null,
   });
   const [validated, setValidated] = useState({
     form: false,
     description: false,
+    image: false,
   });
   const [alert, setAlert] = useState({
     alertShow: false,
@@ -44,17 +47,48 @@ const CreateArticle = () => {
     }));
   };
 
+  const handleInputFile = (e) => {
+    setValidated((prevState) => ({ ...prevState, image: true }));
+    setNewArticle((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.files[0],
+    }));
+  };
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
-    if (form.checkValidity() && newArticle.description) {
-      createArticle(newArticle);
+    if (
+      form.checkValidity() &&
+      newArticle.description &&
+      newArticle.imagename
+    ) {
+      const formData = new FormData();
+      formData.append('articleImage', newArticle.imagename);
+      createArticle(newArticle).then((data) => {
+        fetch(
+          process.env.REACT_APP_API_URL + `/articles/upload/${data.articleid}`,
+          {
+            method: 'PUT',
+            header: {
+              'Content-Type': 'multipart/form-data',
+            },
+            body: formData,
+          }
+        )
+          .then((res) => console.log(res.json()))
+          .catch((err) => console.log(err));
+      });
+    } else if (newArticle.description) {
+      setValidated((prevState) => ({
+        ...prevState,
+        form: true,
+        description: false,
+      }));
+    } else if (newArticle.imagename) {
+      setValidated((prevState) => ({ ...prevState, form: true, image: false }));
     } else {
-      if (newArticle.description) {
-        setValidated({ form: true, description: false });
-      } else {
-        setValidated({ form: true, description: true });
-      }
+      setValidated({ form: true, description: true, image: true });
     }
   };
 
@@ -77,6 +111,7 @@ const CreateArticle = () => {
           message: data.message,
           variant: 'success',
         });
+        return data.data[0];
       } else {
         if (Array.isArray(data.error)) {
           const errorMessage = data.error
@@ -93,6 +128,13 @@ const CreateArticle = () => {
   };
 
   const handleCloseAlert = () => {
+    setNewArticle({
+      articleID: uuidv4(),
+      title: '',
+      description: '',
+      category: '',
+      imagename: null,
+    });
     setAlert({ alertShow: false, message: '', variant: '' });
   };
 
@@ -171,6 +213,20 @@ const CreateArticle = () => {
                 <Form.Control.Feedback type="invalid">
                   Please choose a category!
                 </Form.Control.Feedback>
+              </Form.Group>
+              <Form.Group>
+                <Form.File
+                  id="image"
+                  label="Upload image"
+                  className="create-article-input create-article-input-label"
+                  name="imagename"
+                  onChange={handleInputFile}
+                />
+                {validated.image && (
+                  <div className="text-danger small">
+                    Please upload an image!
+                  </div>
+                )}
               </Form.Group>
             </Card.Body>
             <Card.Footer className="py-4">

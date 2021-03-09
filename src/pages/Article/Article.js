@@ -48,10 +48,10 @@ const Article = () => {
           ></Card.Header>
           <Card.Img variant="top" />
           <Card.Body className="p-4 article-card-body">
-            <Card.Title as="h2" className="py-4 text-center">
+            <Card.Title as="h2" className="py-4 text-center article-card-title">
               {article.title}
             </Card.Title>
-            <div className="py-3">{parse(article.description)}</div>
+            <div className="py-3 article-card-description">{parse(article.description)}</div>
           </Card.Body>
         </Card>
       )}

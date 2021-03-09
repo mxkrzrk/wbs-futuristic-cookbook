@@ -14,7 +14,7 @@
   border: 3px solid var(--primary-color);
 }
 
-.article-card h2 {
+.article-card-title {
   font-size: 2.5rem;
 }
 
@@ -24,13 +24,21 @@
   letter-spacing: 0.1rem;
 }
 
+.article-card-description h2 {
+  font-size: 1.5rem;
+}
+
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   .article-card {
     width: 80%;
   }
 
-  .article-card h2 {
+  .article-card-title {
     font-size: 4rem;
+  }
+
+  .article-card-description h2 {
+    font-size: 2rem;
   }
 }
